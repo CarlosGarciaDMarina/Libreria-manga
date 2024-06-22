@@ -1,4 +1,3 @@
-import React from 'react'
 import {NavLink} from 'react-router-dom'
 
 export const Nav = () => {
@@ -6,16 +5,16 @@ export const Nav = () => {
     <nav className='nav'>
       <ul>
         <li>
-          <a href='/#'><NavLink to="/index">Inicio</NavLink></a>
+          <NavLink to="/index">Inicio</NavLink>
         </li>
         <li>
-          <a href='/#'><NavLink to="/mangas">Mangas</NavLink></a>
+          <NavLink to="/mangas">Mangas</NavLink>
         </li>
         <li>
-          <a href='/#'><NavLink to="/crear-mangas">Crear mangas</NavLink></a>
+          <NavLink to="/crear-mangas">Crear mangas</NavLink>
         </li>
         <li>
-          <a href='/#'><NavLink to="/index">Inicio</NavLink></a>
+          <NavLink to="/index">Inicio</NavLink>
         </li>
       </ul>
     </nav>

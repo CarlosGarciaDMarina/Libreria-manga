@@ -103,25 +103,42 @@ code {
   transform: scale(1.1);
 }
 
-
 /* ESTILOS PARA EL CONTENIDO PRINCIPAL */
 .content {
   grid-area: content;
   background: #F6F7F9;
   display: flex;
-  flex-flow: row wrap; /* Esto sirve para decirle como se tiene que comportar, en este caso se comportará en formato de row y haremos que sea wrap, es decir, que cuando los elementos sobresalgan, utilice la linea de abajo*/
+  flex-flow: column wrap; /* Esto sirve para decirle como se tiene que comportar, en este caso se comportará en formato de row y haremos que sea wrap, es decir, que cuando los elementos sobresalgan, utilice la linea de abajo*/
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: initial;
+  flex-grow: 1;
 }
 
 .manga-item {
-  flex-grow: 1;
+  flex-grow: 1;  
   background-color: #FFFFFF;
   border-radius: 10px;
   box-shadow: 0px 0px 6px #dddddd;
   margin: 20px;
   padding: 60px 25px;
+  text-align: left;
+  max-height: 225px;
+  display: flex;
 
+}
+
+.manga-item .mascara {
+  width: 20%;
+  overflow: hidden;
+}
+
+.manga-item .mascara img{
+  width: 100%;
+  margin-right: 40px;
+}
+
+.manga-item h3 {
+  font-size: 30px;
 }
 
 .jumbo {
