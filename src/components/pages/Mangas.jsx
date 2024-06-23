@@ -11,6 +11,7 @@ export const Mangas = () => {
       { cargando && <h1>Cargando...</h1> }
       { error && <h1>Error: {error}</h1> }
       { datos && datos.status === "succes" && datos.mangas.length >= 1 ? (
+        
         datos.mangas.map(manga => (
           <article key={manga._id} className='manga-item'>
             <div className="mascara">
@@ -24,6 +25,7 @@ export const Mangas = () => {
             </div>
           </article>
         ))
+          
       ) : (
         !cargando && <h1>No hay ningún manga</h1>
       )}

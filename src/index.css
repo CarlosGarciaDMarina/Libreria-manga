@@ -122,19 +122,25 @@ code {
   margin: 20px;
   padding: 60px 25px;
   text-align: left;
-  max-height: 225px;
+  max-height: 450px;
   display: flex;
 
 }
 
 .manga-item .mascara {
   width: 20%;
+  height: 275px; /* Ajusta según sea necesario */
   overflow: hidden;
+  margin-right: 40px;
+
 }
 
 .manga-item .mascara img{
   width: 100%;
-  margin-right: 40px;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
 }
 
 .manga-item h3 {
