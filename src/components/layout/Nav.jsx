@@ -14,7 +14,7 @@ export const Nav = () => {
           <NavLink to="/crear-mangas">Crear mangas</NavLink>
         </li>
         <li>
-          <NavLink to="/index">Inicio</NavLink>
+          <NavLink to="/index">Contacto</NavLink>
         </li>
       </ul>
     </nav>

@@ -28,6 +28,7 @@ code {
   "footer footer footer footer"
   ;
   grid-template-rows: 100px 70px auto 70px;
+  grid-template-columns: 1fr 1fr 1fr 20%;
   max-width: 100%;
   min-height: 100vh; /* Asegura que la altura mínima sea 100vh */
   height: 100%;
@@ -128,7 +129,7 @@ code {
 }
 
 .manga-item .mascara {
-  width: 25%;
+  width: 30%;
   height: 300px; /* Ajusta según sea necesario */
   overflow: hidden;
   margin-right: 40px;
@@ -143,6 +144,17 @@ code {
 
 .manga-item h3 {
   font-size: 30px;
+}
+
+.manga-item h3 a{
+  text-decoration: none;
+  color: #000;
+  transition: all .3s;
+}
+
+.manga-item h3 a:hover{
+  text-decoration: none;
+  color: #0e73e4;
 }
 
 .jumbo {
@@ -165,6 +177,11 @@ code {
   margin-bottom: 40px;
 }
 
+.jumbo .mascara img{
+  height: 450px; /* Ajusta según sea necesario */
+
+}
+
 button,
 .button,
 input[type="Submit"],
@@ -184,6 +201,11 @@ input[type="button"] {
   font-weight: 500;
   cursor: pointer;
   transition: all 300ms;
+}
+
+button a{
+  text-decoration: none;
+  color: #FFFFFF;
 }
 
 .manga-item .edit:hover {

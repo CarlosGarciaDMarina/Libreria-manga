@@ -18,23 +18,20 @@ export const Crear = () => {
     const {datos} = await Peticion(Global.url+"crear", "POST", nuevoArticulo);
     console.log(datos);
 
+    const fileInput = document.querySelector('#file');
 
-    if (datos.status === "success") {
+    if (datos.status === "success" && fileInput.files[0]) {
       setResultado("Guardado");
 
       // Conseguimos el FileInput
-      const fileInput = document.querySelector('#file');
 
       const formData = new FormData();
-      formData.set("file", fileInput.files[0], fileInput.files[0].name);
+      formData.append("file", fileInput.files[0]);
+      //formData.set("file", fileInput.files[0], fileInput.files[0].name);
 
       const imagen = await Peticion(Global.url+"subir-imagen/"+datos.manga._id, "POST", formData, true);
 
       console.log(imagen.datos);
-
-
-
-
 
     } else{
       setResultado("no_enviado");
@@ -49,7 +46,6 @@ export const Crear = () => {
         <div className="jumbo">
           <h1>Añadir un manga nuevo</h1>
           <p>Formulario para añadir un manga</p>
-          <pre>{JSON.stringify(formulario)}</pre>
 
           <strong>{resultado == "Guardado" ? "Manga guardado" : ""}</strong>
           <strong>{resultado == "no_enviado" ? "Datos incorrectos" : ""}</strong>
