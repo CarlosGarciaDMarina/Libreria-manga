@@ -15,10 +15,27 @@ export const Crear = () => {
     let nuevoArticulo = formulario;
     
     //Guardamos el manga en el backend
-    const {datos, cargando} = await Peticion(Global.url+"crear", "POST", nuevoArticulo);
+    const {datos} = await Peticion(Global.url+"crear", "POST", nuevoArticulo);
+    console.log(datos);
+
 
     if (datos.status === "success") {
       setResultado("Guardado");
+
+      // Conseguimos el FileInput
+      const fileInput = document.querySelector('#file');
+
+      const formData = new FormData();
+      formData.set("file", fileInput.files[0], fileInput.files[0].name);
+
+      const imagen = await Peticion(Global.url+"subir-imagen/"+datos.manga._id, "POST", formData, true);
+
+      console.log(imagen.datos);
+
+
+
+
+
     } else{
       setResultado("no_enviado");
     }
@@ -34,8 +51,8 @@ export const Crear = () => {
           <p>Formulario para añadir un manga</p>
           <pre>{JSON.stringify(formulario)}</pre>
 
-          <strong>{resultado == "guardado" ? "Manga guardado" : ""}</strong>
-          <strong>{resultado == "error" ? "Datos incorrectos" : ""}</strong>
+          <strong>{resultado == "Guardado" ? "Manga guardado" : ""}</strong>
+          <strong>{resultado == "no_enviado" ? "Datos incorrectos" : ""}</strong>
 
           <form className="formulario"onSubmit={guardarManga} >
             <div className="form-group">
@@ -54,8 +71,8 @@ export const Crear = () => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="file0"></label>
-              <input type="file" name="file0" id="file" />
+              <label htmlFor="file"></label>
+              <input type="file" name="file" id="file" />
             </div>
 
             <input type="submit" value="Guardar" className="btn btn-success" />
